@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>View Pilot</title>
+		<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+		<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+	</head>
+	
+	<body>
+		<nav th:replace="fragments/fragment :: navbar('View Pilot')"></nav>
+		<h2>Pilot's Data</h2>
+		<h3 th:text="'License number: ' + ${pilot.licenseNumber}"></h3>
+		<h3 th:text="'Name: ' + ${pilot.name}"></h3>
+		<h3 th:text="'Fly Hour: ' + ${pilot.flyHour}"></h3>
+		<td><a th:href="@{/pilot/update/} + ${pilot.licenseNumber}">Update Pilot</a></td>
+		<td><a th:href="@{/pilot/delete/} + ${pilot.id}">Delete Pilot</a></td>
+		<h3 th:text="'====================='"></h3>
+		
+		<h2>Flight's Data</h2>
+		<h3>--Tidak ada Penerbangan--</h3>
+		
+		<td><a th:href="@{/flight/add/} + ${pilot.licenseNumber}">add flight</a></td>
+	</body>
+</html>
